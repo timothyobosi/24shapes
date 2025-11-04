@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './ServiceCard.module.css';
 import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
@@ -21,7 +20,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, cta
       <div className={styles.serviceContent}>
         <h3>{title}</h3>
         <p>{description}</p>
-        <Link to={to} className={styles.ctaButton}>{ctaText}</Link>
+        <a href={to} className={styles.ctaButton}>{ctaText}</a>
       </div>
     </div>
   );

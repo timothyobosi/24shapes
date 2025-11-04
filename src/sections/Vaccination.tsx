@@ -1,7 +1,6 @@
 // src/sections/Vaccination.tsx
 import React from 'react';
 import Container from '../components/Container';
-import { Link } from 'react-router-dom';
 import styles from './Vaccination.module.css';
 
 interface Vaccine {
@@ -45,7 +44,7 @@ const Vaccination: React.FC = () => {
           </tbody>
         </table>
         <div className={styles.ctaWrapper}>
-          <Link to="/consultation" className={styles.ctaButton}>Schedule Vaccination</Link>
+          <a href="#consultation" className={styles.ctaButton}>Schedule Vaccination</a>
         </div>
       </Container>
     </section>

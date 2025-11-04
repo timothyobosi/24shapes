@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 
 const Bio = () => {
-  const [active, setActive] = useState('standard')
-
   const tabs = {
-    standard: { title: "Our Professional Approach", content: "Modern diagnostic lab...", cta: "Explore Services", link: "/" },
-    vision: { title: "Our Vision", content: "Health from every angle...", cta: "Consult", link: "/" }
-  }
+    standard: { title: "Our Professional Approach", content: "Modern diagnostic lab...", cta: "Explore Services", link: "#services" },
+    vision: { title: "Our Vision", content: "Health from every angle...", cta: "Consult", link: "#consultation" }
+  } as const
+
+  type TabKey = keyof typeof tabs
+  const [active, setActive] = useState<TabKey>('standard')
 
   const current = tabs[active]
 
@@ -15,7 +15,7 @@ const Bio = () => {
     <section style={{ padding: '80px 0', background: 'white' }}>
       <div className="container">
         <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginBottom: 40 }}>
-          {Object.keys(tabs).map(key => (
+          {(Object.keys(tabs) as TabKey[]).map(key => (
             <button
               key={key}
               onClick={() => setActive(key)}
@@ -34,7 +34,7 @@ const Bio = () => {
         <div style={{ textAlign: 'center' }}>
           <h2 style={{ color: 'var(--primary)' }}>{current.title}</h2>
           <p>{current.content}</p>
-          <Link to={current.link} style={{ color: 'var(--primary)' }}>{current.cta}</Link>
+          <a href={current.link} style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>{current.cta}</a>
         </div>
       </div>
     </section>

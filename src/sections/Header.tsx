@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone, faClock } from '@fortawesome/free-solid-svg-icons'
 
@@ -41,35 +40,23 @@ const Header = () => {
 
           <nav>
             <ul style={{ display: 'flex', listStyle: 'none', margin: 0 }}>
-              <li style={{ marginLeft: 25 }}>
-                <Link to="/" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Home</Link>
-              </li>
-              <li style={{ marginLeft: 25 }}>
-                <Link to="/bio" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>About Us</Link>
-              </li>
-              <li style={{ marginLeft: 25 }}>
-                <Link to="/services" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Services</Link>
-              </li>
-              <li style={{ marginLeft: 25 }}>
-                <Link to="/vaccination" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Vaccination</Link>
-              </li>
-              <li style={{ marginLeft: 25 }}>
-                <Link to="/consultation" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Consultation</Link>
-              </li>
-              <li style={{ marginLeft: 25 }}>
-                <Link to="/payment" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Payment</Link>
-              </li>
+              <li style={{ marginLeft: 25 }}><a href="#home" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Home</a></li>
+              <li style={{ marginLeft: 25 }}><a href="#bio" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>About Us</a></li>
+              <li style={{ marginLeft: 25 }}><a href="#services" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Services</a></li>
+              <li style={{ marginLeft: 25 }}><a href="#vaccination" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Vaccination</a></li>
+              <li style={{ marginLeft: 25 }}><a href="#consultation" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Consultation</a></li>
+              <li style={{ marginLeft: 25 }}><a href="#payment" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Payment</a></li>
             </ul>
           </nav>
 
-          <Link to="/consultation" style={{
+          <a href="#consultation" style={{
             backgroundColor: 'var(--primary)',
             color: 'white',
             padding: '10px 20px',
             borderRadius: 30,
             textDecoration: 'none',
             fontWeight: 600
-          }}>Book Appointment</Link>
+          }}>Book Appointment</a>
         </div>
       </div>
     </header>
