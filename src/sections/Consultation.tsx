@@ -16,7 +16,7 @@ interface FormData {
 const Consultation: React.FC = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = () => {
     alert('Thank you for your enquiry! We will contact you shortly.');
     reset();
   };
@@ -37,14 +37,53 @@ const Consultation: React.FC = () => {
                 <input {...register('firstName', { required: true })} id="firstName" className={styles.formControl} />
                 {errors.firstName && <span className={styles.error}>Required</span>}
               </div>
-              {/* Similar for other fields */}
+              <div className={styles.formGroup}>
+                <label htmlFor="lastName">Last Name</label>
+                <input {...register('lastName', { required: true })} id="lastName" className={styles.formControl} />
+                {errors.lastName && <span className={styles.error}>Required</span>}
+              </div>
             </div>
-            {/* Add all fields with register and errors */}
+
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
+                <label htmlFor="email">Email Address</label>
+                <input type="email" {...register('email', { required: true })} id="email" className={styles.formControl} />
+                {errors.email && <span className={styles.error}>Required</span>}
+              </div>
+              <div className={styles.formGroup}>
+                <label htmlFor="phone">Phone Number</label>
+                <input type="tel" {...register('phone', { required: true })} id="phone" className={styles.formControl} />
+                {errors.phone && <span className={styles.error}>Required</span>}
+              </div>
+            </div>
+
+            <div className={styles.formGroup}>
+              <label htmlFor="serviceType">Service Required</label>
+              <select {...register('serviceType', { required: true })} id="serviceType" className={styles.formControl}>
+                <option value="">Select a service</option>
+                <option value="blood-test">Blood Test</option>
+                <option value="molecular">Molecular Diagnostics</option>
+                <option value="microbiology">Microbiology</option>
+                <option value="urine-analysis">Urine Analysis</option>
+                <option value="cardiac">Cardiac Markers</option>
+                <option value="vaccination">Vaccination</option>
+                <option value="consultation">General Consultation</option>
+                <option value="other">Other</option>
+              </select>
+              {errors.serviceType && <span className={styles.error}>Required</span>}
+            </div>
+
+            <div className={styles.formGroup}>
+              <label htmlFor="message">Message / Additional Information</label>
+              <textarea {...register('message')} id="message" className={styles.formControl} placeholder="Please provide any specific details about your request..." />
+            </div>
+
             <div className={styles.formGroup}>
               <label htmlFor="preferredDate">Preferred Date</label>
-              <input type="date" {...register('preferredDate', { required: true, min: today })} id="preferredDate" className={styles.formControl} min={today} />
+              <input type="date" {...register('preferredDate', { required: true, validate: (v) => v >= today })} id="preferredDate" className={styles.formControl} min={today} />
               {errors.preferredDate && <span className={styles.error}>Required, future date</span>}
             </div>
+
             <div className={styles.ctaWrapper}>
               <button type="submit" className={styles.ctaButton}>Submit Request</button>
             </div>
