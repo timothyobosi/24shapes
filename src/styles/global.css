@@ -1,0 +1,15 @@
+:root{
+    --primary: #2c7fb8;
+    --secondary: #7fcdbb;
+    --accent:#edf8b1;
+    --light:#f8f9fa;
+    --danger: #e74c3c;
+    --success: #2ecc71;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
