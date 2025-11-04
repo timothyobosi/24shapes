@@ -5,6 +5,7 @@
     --light:#f8f9fa;
     --danger: #e74c3c;
     --success: #2ecc71;
+    --dark: #253237;
 }
 
 *{
@@ -12,4 +13,17 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }

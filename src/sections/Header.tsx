@@ -41,19 +41,24 @@ const Header = () => {
 
           <nav>
             <ul style={{ display: 'flex', listStyle: 'none', margin: 0 }}>
-              {['Home', 'About Us', 'Services', 'Vaccination', 'Consultation', 'Payment'].map((item) => {
-                const path = item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`
-                return (
-                  <li key={item} style={{ marginLeft: 25 }}>
-                    <Link to={path} style={{
-                      textDecoration: 'none',
-                      color: 'var(--dark)',
-                      fontWeight: 600,
-                      transition: 'color 0.3s'
-                    }}>{item}</Link>
-                  </li>
-                )
-              })}
+              <li style={{ marginLeft: 25 }}>
+                <Link to="/" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Home</Link>
+              </li>
+              <li style={{ marginLeft: 25 }}>
+                <Link to="/bio" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>About Us</Link>
+              </li>
+              <li style={{ marginLeft: 25 }}>
+                <Link to="/services" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Services</Link>
+              </li>
+              <li style={{ marginLeft: 25 }}>
+                <Link to="/vaccination" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Vaccination</Link>
+              </li>
+              <li style={{ marginLeft: 25 }}>
+                <Link to="/consultation" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Consultation</Link>
+              </li>
+              <li style={{ marginLeft: 25 }}>
+                <Link to="/payment" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Payment</Link>
+              </li>
             </ul>
           </nav>
 
