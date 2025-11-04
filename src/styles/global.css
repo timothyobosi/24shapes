@@ -45,3 +45,41 @@ main{
 html, body, #root{
     height: 100%;
 }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .container{ width: 94%; }
+}
+
+@media (max-width: 768px) {
+    /* Make header containers stack */
+    header .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    header nav ul {
+        margin-top: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    header nav ul li { margin: 6px 8px !important; }
+
+    /* Reduce hero padding and font size */
+    .hero { padding: 60px 0 !important; }
+    .hero h1 { font-size: 2.2rem !important; }
+    .hero p { font-size: 1rem !important; }
+
+    /* Footer columns -> single column */
+    footer .container > div { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 420px) {
+    .hero { padding: 40px 0 !important; }
+    .hero h1 { font-size: 1.6rem !important; }
+    .serviceIcon{ height: 64px !important; font-size: 1.6rem !important; }
+}

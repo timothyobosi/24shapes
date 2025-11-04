@@ -26,3 +26,8 @@
   font-weight: 600;
   display: inline-block;
 }
+
+@media (max-width: 420px){
+  .serviceIcon{ height: 64px; font-size: 1.6rem; }
+  .serviceContent{ padding: 18px; }
+}

@@ -10,6 +10,8 @@
   background: white;
   border-radius: 10px;
   overflow: hidden;
+  display: block; /* allow horizontal scroll on small */
+  overflow-x: auto;
 }
 .vaccinationTable th, .vaccinationTable td{ padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
 .vaccinationTable th{ background: var(--primary); color: white; }
@@ -17,3 +19,9 @@
 .price{ font-weight: bold; color: var(--primary); }
 .ctaWrapper{ text-align: center; margin-top: 30px; }
 .ctaButton{ background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; }
+
+@media (max-width: 600px) {
+  .intro{ padding: 0 12px; }
+  .vaccination{ padding: 40px 0; }
+  .vaccinationTable th, .vaccinationTable td{ padding: 10px; font-size: 0.95rem; }
+}

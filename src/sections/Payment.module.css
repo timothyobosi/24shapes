@@ -4,3 +4,12 @@
 .options{ display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
 .option{ background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; width: 220px; }
 .optionIcon{ font-size: 2rem; margin-bottom: 10px; }
+
+@media (max-width: 768px) {
+	.options{ gap: 16px; }
+	.option{ width: 180px; padding: 16px; }
+}
+
+@media (max-width: 420px) {
+	.option{ width: 100%; max-width: 320px; }
+}
