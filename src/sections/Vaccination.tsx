@@ -45,10 +45,10 @@ const Vaccination: React.FC = () => {
           <tbody>
             {vaccines.map((v, index) => (
               <tr key={index}>
-                <td>{v.name}</td>
-                <td>{v.description}</td>
-                <td>{v.recommended}</td>
-                <td className={styles.price}>{v.price}</td>
+                <td data-label="Vaccine">{v.name}</td>
+                <td data-label="Description">{v.description}</td>
+                <td data-label="Recommended For">{v.recommended}</td>
+                <td className={styles.price} data-label="Price (KES)">{v.price}</td>
               </tr>
             ))}
           </tbody>

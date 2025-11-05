@@ -1,4 +1,7 @@
+'use client'
+
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const Bio = () => {
   const tabs = {
@@ -38,12 +41,12 @@ const Bio = () => {
 
   type TabKey = keyof typeof tabs
   const [active, setActive] = useState<TabKey>('standard')
-
   const current = tabs[active]
 
   return (
     <section style={{ padding: '80px 0', background: 'white' }} id="bio">
       <div className="container">
+        {/* Tabs — 100% identical to your original */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginBottom: 40, borderBottom: '1px solid #eee' }}>
           {(Object.keys(tabs) as TabKey[]).map((key) => (
             <button
@@ -63,11 +66,38 @@ const Bio = () => {
             </button>
           ))}
         </div>
-        <div style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto' }}>
-          <h2 style={{ fontSize: '2rem', color: 'var(--primary)', marginBottom: 20 }}>{current.title}</h2>
-          <p style={{ fontSize: '1.1rem', lineHeight: 1.8, marginBottom: 30 }}>{current.content}</p>
-          <a href={current.link} style={{ backgroundColor: 'var(--primary)', color: 'white', padding: '10px 20px', borderRadius: 30, textDecoration: 'none', fontWeight: 600 }}>{current.cta}</a>
-        </div>
+
+        {/* Content — wrapped in motion for smooth transition */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto' }}
+          >
+            <h2 style={{ fontSize: '2rem', color: 'var(--primary)', marginBottom: 20 }}>
+              {current.title}
+            </h2>
+            <p style={{ fontSize: '1.1rem', lineHeight: 1.8, marginBottom: 30 }}>
+              {current.content}
+            </p>
+            <a
+              href={current.link}
+              style={{
+                backgroundColor: 'var(--primary)',
+                color: 'white',
+                padding: '10px 20px',
+                borderRadius: 30,
+                textDecoration: 'none',
+                fontWeight: 600
+              }}
+            >
+              {current.cta}
+            </a>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   )

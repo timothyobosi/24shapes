@@ -1,27 +1,251 @@
-.vaccination{ padding: 80px 0; background: white; }
-.sectionTitle{ text-align: center; margin-bottom: 30px; }
-.sectionTitle h2{ color: var(--primary); }
-.intro{ text-align: center; max-width: 800px; margin: 0 auto 30px; }
-.vaccinationTable{
+.vaccination { 
+  padding: 5rem 0; 
+  background: white; 
+  position: relative;
+}
+
+.sectionTitle { 
+  text-align: center; 
+  margin-bottom: 2.5rem; 
+}
+
+.sectionTitle h2 { 
+  color: var(--primary); 
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary);
+}
+
+.intro { 
+  text-align: center; 
+  max-width: 800px; 
+  margin: 0 auto 3rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+/* Table styles */
+.vaccinationTable {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin: 2rem 0;
   background: white;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  display: block; /* allow horizontal scroll on small */
-  overflow-x: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  table-layout: fixed;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
-.vaccinationTable th, .vaccinationTable td{ padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
-.vaccinationTable th{ background: var(--primary); color: white; }
-.vaccinationTable tr:hover{ background: #f5f9ff; }
-.price{ font-weight: bold; color: var(--primary); }
-.ctaWrapper{ text-align: center; margin-top: 30px; }
-.ctaButton{ background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; }
 
-@media (max-width: 600px) {
-  .intro{ padding: 0 12px; }
-  .vaccination{ padding: 40px 0; }
-  .vaccinationTable th, .vaccinationTable td{ padding: 10px; font-size: 0.95rem; }
+.vaccinationTable th,
+.vaccinationTable td {
+  padding: 0.8rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #f0f4f8;
+  vertical-align: top;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vaccinationTable th {
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  padding: 1rem 0.8rem;
+}
+
+/* Responsive table cell widths */
+.vaccinationTable th:first-child,
+.vaccinationTable td:first-child {
+  width: 18%;
+  padding-left: 1.5rem;
+}
+
+.vaccinationTable th:nth-child(2),
+.vaccinationTable td:nth-child(2) {
+  width: 37%;
+}
+
+.vaccinationTable th:nth-child(3),
+.vaccinationTable td:nth-child(3) {
+  width: 30%;
+}
+
+.vaccinationTable th:last-child,
+.vaccinationTable td:last-child {
+  width: 15%;
+  padding-right: 1.5rem;
+  text-align: right;
+}
+
+.vaccinationTable tr:last-child td {
+  border-bottom: none;
+}
+
+.vaccinationTable tbody tr:hover {
+  background-color: #f8fafc;
+  transition: background-color 0.2s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .vaccinationTable th:first-child,
+  .vaccinationTable td:first-child {
+    width: 20%;
+  }
+  
+  .vaccinationTable th:nth-child(2),
+  .vaccinationTable td:nth-child(2) {
+    width: 35%;
+  }
+  
+  .vaccinationTable th:nth-child(3),
+  .vaccinationTable td:nth-child(3) {
+    width: 28%;
+  }
+  
+  .vaccinationTable th:last-child,
+  .vaccinationTable td:last-child {
+    width: 17%;
+  }
+}
+
+@media (max-width: 768px) {
+  .vaccinationTable {
+    font-size: 0.85rem;
+  }
+  
+  .vaccinationTable th,
+  .vaccinationTable td {
+    padding: 0.7rem 0.5rem;
+  }
+  
+  .vaccinationTable th:first-child,
+  .vaccinationTable td:first-child {
+    padding-left: 1rem;
+  }
+  
+  .vaccinationTable th:last-child,
+  .vaccinationTable td:last-child {
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .vaccinationTable {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.5rem -1rem;
+    width: calc(100% + 2rem);
+    border-radius: 0;
+  }
+  
+  .vaccinationTable table {
+    min-width: 600px;
+  }
+  
+  .vaccinationTable th,
+  .vaccinationTable td {
+    white-space: normal;
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .vaccinationTable th:first-child,
+  .vaccinationTable td:first-child {
+    padding-left: 1.5rem;
+  }
+  
+  .vaccinationTable th:last-child,
+  .vaccinationTable td:last-child {
+    padding-right: 1.5rem;
+  }
+}
+
+.price { 
+  font-weight: 700; 
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.ctaWrapper { 
+  text-align: center; 
+  margin-top: 3rem; 
+}
+
+.ctaButton { 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary); 
+  color: white; 
+  padding: 0.9rem 2.2rem; 
+  border-radius: 50px; 
+  text-decoration: none; 
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+  border: 2px solid transparent;
+}
+
+.ctaButton:hover {
+  background: white;
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .vaccination { 
+    padding: 2rem 0; 
+  }
+  
+  .sectionTitle h2 {
+    font-size: 1.6rem;
+  }
+  
+  .sectionTitle h2::after {
+    width: 40px;
+    height: 2px;
+    bottom: -6px;
+  }
+  
+  .intro { 
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .ctaWrapper {
+    margin-top: 1.75rem;
+  }
+  
+  .ctaButton {
+    width: 100%;
+    max-width: 260px;
+    padding: 0.8rem 1.25rem;
+    font-size: 0.95rem;
+  }
 }

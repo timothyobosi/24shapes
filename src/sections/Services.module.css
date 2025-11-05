@@ -1,18 +1,103 @@
-.services{ padding: 80px 0; background-color: var(--light); }
-.sectionTitle{ text-align: center; margin-bottom: 50px; position: relative; }
-.sectionTitle h2{ font-size: 2.2rem; color: var(--primary); display: inline-block; padding-bottom: 10px; }
-.servicesGrid{
+.services { 
+  padding: 5rem 0; 
+  background-color: var(--light);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background gradient */
+.services::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(240, 245, 255, 0.6) 50%, 
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  z-index: 0;
+}
+
+.sectionTitle { 
+  text-align: center; 
+  margin-bottom: 3.5rem; 
+  position: relative;
+  z-index: 1;
+}
+
+.sectionTitle h2 { 
+  font-size: 2.5rem; 
+  color: var(--primary); 
+  display: inline-block;
+  padding-bottom: 0.75rem;
+  position: relative;
+  margin: 0;
+}
+
+.sectionTitle h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.servicesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.75rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .services{ padding: 50px 0; }
-  .sectionTitle h2{ font-size: 1.8rem; }
-  .servicesGrid{ grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+  .services { 
+    padding: 4rem 0; 
+  }
+  
+  .sectionTitle { 
+    margin-bottom: 2.5rem; 
+  }
+  
+  .sectionTitle h2 { 
+    font-size: 2.1rem; 
+  }
+  
+  .servicesGrid { 
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+    gap: 1.5rem; 
+  }
 }
 
-@media (max-width: 420px) {
-  .servicesGrid{ grid-template-columns: 1fr; gap: 16px; }
+@media (max-width: 480px) {
+  .services { 
+    padding: 3rem 0; 
+  }
+  
+  .sectionTitle h2 { 
+    font-size: 1.9rem; 
+  }
+  
+  .servicesGrid { 
+    grid-template-columns: 1fr; 
+    gap: 1.5rem; 
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }

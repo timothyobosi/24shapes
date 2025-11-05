@@ -1,33 +1,124 @@
-.serviceCard{
-  background-color: white;
-  border-radius: 10px;
+/* ──────────────────────────────────────────────────────────────
+   GLASS‑MORPHIC SERVICE CARD
+   ────────────────────────────────────────────────────────────── */
+.serviceCard {
+  /* Glass base */
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.65) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  transform: translateY(0);
 }
-.serviceCard:hover{ transform: translateY(-10px); }
-.serviceIcon{
+
+.serviceCard:hover { 
+  transform: translateY(-8px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* tiny inner shine */
+.serviceCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.serviceCard:hover::before {
+  opacity: 1;
+}
+
+/* ICON BAR */
+.serviceIcon {
   background-color: var(--primary);
   color: white;
-  height: 80px;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.75rem;
+  transition: all 0.3s ease;
 }
-.serviceContent{ padding: 25px; }
-.serviceContent h3{ margin-bottom: 15px; color: var(--dark); }
-.ctaButton{
-  background-color: var(--primary);
-  color: white;
-  padding: 8px 15px;
-  border-radius: 30px;
+
+.serviceCard:hover .serviceIcon {
+  background-color: white;
+  color: var(--primary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* CONTENT */
+.serviceContent { 
+  padding: 1.75rem; 
+}
+
+.serviceContent h3 { 
+  margin-bottom: 1rem; 
+  color: var(--text-dark);
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.serviceContent p {
+  color: var(--text-gray);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* CTA BUTTON */
+.ctaButton {
+  background-color: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
   text-decoration: none;
   font-weight: 600;
   display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 420px){
-  .serviceIcon{ height: 64px; font-size: 1.6rem; }
-  .serviceContent{ padding: 18px; }
+.ctaButton:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .serviceCard { 
+    padding: 0; 
+  }
+  
+  .serviceIcon { 
+    height: 4.5rem; 
+    font-size: 1.5rem;
+  }
+  
+  .serviceContent { 
+    padding: 1.5rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceIcon { 
+    height: 4rem; 
+    font-size: 1.4rem; 
+  }
+  
+  .serviceContent { 
+    padding: 1.25rem; 
+  }
+  
+  .serviceContent h3 {
+    font-size: 1.25rem;
+  }
 }
