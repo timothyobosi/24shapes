@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from '../components/Container';
 import ServiceCard from '../components/ServiceCard';
-import { faVial, faDna /* etc */ } from '@fortawesome/free-solid-svg-icons';
+import { faVial} from '@fortawesome/free-solid-svg-icons';
 import styles from './Services.module.css';
 
 const services = [
