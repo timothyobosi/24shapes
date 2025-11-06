@@ -27,7 +27,7 @@ const vaccines: Vaccine[] = [
 
 const Vaccination: React.FC = () => {
   return (
-    <section className={styles.vaccination} id="vaccination">
+    <section className={styles.vaccination}>
       <Container>
         <div className={styles.sectionTitle}>
           <h2>Vaccination & Immunization</h2>

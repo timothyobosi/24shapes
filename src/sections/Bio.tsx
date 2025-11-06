@@ -44,7 +44,7 @@ const Bio = () => {
   const current = tabs[active]
 
   return (
-    <section style={{ padding: '80px 0', background: 'white' }} id="bio">
+    <section style={{ padding: '80px 0', background: 'white' }}>
       <div className="container">
         {/* Tabs — 100% identical to your original */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginBottom: 40, borderBottom: '1px solid #eee' }}>

@@ -11,7 +11,7 @@ const Payment: React.FC = () => {
   ];
 
   return (
-    <section className={styles.payment} id="payment">
+    <section className={styles.payment}>
       <Container>
         <div className={styles.sectionTitle}>
           <h2>Payment Options</h2>

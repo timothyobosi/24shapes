@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Container from '../components/Container';
 import styles from './Consultation.module.css';
@@ -14,7 +14,7 @@ interface FormData {
 }
 
 const Consultation: React.FC = () => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>();
+  const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm<FormData>();
 
   const onSubmit = () => {
     alert('Thank you for your enquiry! We will contact you shortly.');
@@ -23,8 +23,41 @@ const Consultation: React.FC = () => {
 
   const today = new Date().toISOString().split('T')[0];
 
+  useEffect(() => {
+    const allowed = new Set([
+      'blood-test',
+      'molecular',
+      'microbiology',
+      'urine-analysis',
+      'cardiac',
+      'vaccination',
+      'consultation',
+      'other',
+    ]);
+
+    const applyFromLocation = () => {
+      let svc = '';
+      const { hash, search } = window.location;
+      if (hash && hash.includes('?')) {
+        const query = hash.split('?')[1];
+        const params = new URLSearchParams(query);
+        svc = params.get('service') || '';
+      } else if (search) {
+        const params = new URLSearchParams(search);
+        svc = params.get('service') || '';
+      }
+      if (svc && allowed.has(svc)) {
+        setValue('serviceType', svc, { shouldValidate: true, shouldDirty: false, shouldTouch: false });
+      }
+    };
+
+    applyFromLocation();
+    window.addEventListener('hashchange', applyFromLocation);
+    return () => window.removeEventListener('hashchange', applyFromLocation);
+  }, [setValue]);
+
   return (
-    <section className={styles.consultation} id="consultation">
+    <section className={styles.consultation}>
       <Container>
         <div className={styles.sectionTitle}>
           <h2>Consultation & Enquiry</h2>

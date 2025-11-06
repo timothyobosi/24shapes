@@ -83,3 +83,6 @@ html, body, #root{
     .hero h1 { font-size: 1.6rem !important; }
     .serviceIcon{ height: 64px !important; font-size: 1.6rem !important; }
 }
+
+/* Offset anchors for sticky header */
+#bio, #services, #vaccination, #consultation, #payment { scroll-margin-top: 90px; }

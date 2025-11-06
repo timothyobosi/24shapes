@@ -49,7 +49,7 @@ const Footer = () => (
       </div>
 
       <div style={{ textAlign: 'center', paddingTop: 20, borderTop: '1px solid #444', fontSize: '0.9rem', color: '#bbb' }}>
-        <p>&copy; 2023 24 Shapes Laboratory. All rights reserved.</p>
+        <p>&copy; 2023 |  24Shapes Laboratory. All rights reserved.</p>
       </div>
     </div>
   </footer>

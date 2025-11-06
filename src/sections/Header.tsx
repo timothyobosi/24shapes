@@ -4,6 +4,13 @@ import { faPhone, faClock, faBars, faTimes } from '@fortawesome/free-solid-svg-i
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const clearServiceParam = () => {
+    const url = new URL(window.location.href)
+    if (url.searchParams.has('service')) {
+      url.searchParams.delete('service')
+      history.replaceState(null, '', url.toString())
+    }
+  }
   return (
     <header style={{
       backgroundColor: 'white',
@@ -56,12 +63,12 @@ const Header = () => {
 
           <nav className="nav" style={{ flex: '1 1 auto', display: 'flex', justifyContent: 'center', overflow: 'hidden', minWidth: 0 }}>
             <ul style={{ display: 'flex', listStyle: 'none', margin: 0, padding: 0, flexWrap: 'wrap', justifyContent: 'center', gap: 25 }}>
-              <li><a href="#home" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Home</a></li>
-              <li><a href="#bio" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>About Us</a></li>
-              <li><a href="#services" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Services</a></li>
-              <li><a href="#vaccination" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Vaccination</a></li>
+              <li><a href="#home" onClick={clearServiceParam} style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Home</a></li>
+              <li><a href="#bio" onClick={clearServiceParam} style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>About Us</a></li>
+              <li><a href="#services" onClick={clearServiceParam} style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Services</a></li>
+              <li><a href="#vaccination" onClick={clearServiceParam} style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Vaccination</a></li>
               <li><a href="#consultation" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Consultation</a></li>
-              <li><a href="#payment" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Payment</a></li>
+              <li><a href="#payment" onClick={clearServiceParam} style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Payment</a></li>
             </ul>
           </nav>
 
@@ -87,12 +94,12 @@ const Header = () => {
         {mobileOpen && (
           <div className="mobile-menu" style={{ backgroundColor: 'white', borderTop: '1px solid rgba(0,0,0,0.08)', padding: '8px 16px' }}>
             <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-              <li style={{ margin: '10px 0' }}><a href="#home" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>Home</a></li>
-              <li style={{ margin: '10px 0' }}><a href="#bio" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>About Us</a></li>
-              <li style={{ margin: '10px 0' }}><a href="#services" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>Services</a></li>
-              <li style={{ margin: '10px 0' }}><a href="#vaccination" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>Vaccination</a></li>
+              <li style={{ margin: '10px 0' }}><a href="#home" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => { clearServiceParam(); setMobileOpen(false) }}>Home</a></li>
+              <li style={{ margin: '10px 0' }}><a href="#bio" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => { clearServiceParam(); setMobileOpen(false) }}>About Us</a></li>
+              <li style={{ margin: '10px 0' }}><a href="#services" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => { clearServiceParam(); setMobileOpen(false) }}>Services</a></li>
+              <li style={{ margin: '10px 0' }}><a href="#vaccination" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => { clearServiceParam(); setMobileOpen(false) }}>Vaccination</a></li>
               <li style={{ margin: '10px 0' }}><a href="#consultation" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>Consultation</a></li>
-              <li style={{ margin: '10px 0' }}><a href="#payment" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>Payment</a></li>
+              <li style={{ margin: '10px 0' }}><a href="#payment" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => { clearServiceParam(); setMobileOpen(false) }}>Payment</a></li>
             </ul>
           </div>
         )}
