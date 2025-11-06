@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faInstagram, faLinkedin,faTiktok } from '@fortawesome/free-brands-svg-icons'
 import { faMapMarkerAlt, faPhone, faEnvelope, faClock } from '@fortawesome/free-solid-svg-icons'
 
 const Footer = () => (
@@ -10,11 +10,11 @@ const Footer = () => (
           <h3 style={{ fontSize: '1.3rem', marginBottom: 20 }}>24 Shapes Laboratory</h3>
           <p>Providing accurate and reliable medical laboratory services with a commitment to quality and patient care.</p>
           <div style={{ marginTop: 20, display: 'flex', gap: 15 }}>
-            <a href="#" style={{ color: 'white', fontSize: '1.2rem' }} aria-label="facebook">
+            <a href="https://www.facebook.com/share/1CecEamTW6/" style={{ color: 'white', fontSize: '1.2rem' }} aria-label="facebook">
               <FontAwesomeIcon icon={faFacebook} />
             </a>
             <a href="#" style={{ color: 'white', fontSize: '1.2rem' }} aria-label="twitter">
-              <FontAwesomeIcon icon={faTwitter} />
+              <FontAwesomeIcon icon={faTiktok} />
             </a>
             <a href="#" style={{ color: 'white', fontSize: '1.2rem' }} aria-label="instagram">
               <FontAwesomeIcon icon={faInstagram} />

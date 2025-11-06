@@ -3,7 +3,8 @@
 .consultationForm{ max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 .formRow{ display: flex; gap: 20px; flex-wrap: wrap; }
 .formGroup{ flex: 1; margin-bottom: 15px; min-width: 240px; }
-.formControl{ width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
+.formControl{ width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; min-height: 44px; line-height: 1.4; }
+.formGroup label{ display: block; margin-bottom: 6px; }
 .error{ color: #e74c3c; font-size: 0.85rem; }
 .ctaWrapper{ text-align: center; margin-top: 20px; }
 .ctaButton{ background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 30px; font-weight: 600; border: none; cursor: pointer; }
@@ -15,6 +16,6 @@
 
 @media (max-width: 420px) {
 	.consultationForm{ padding: 16px; }
-	.formControl{ padding: 10px 12px; }
+	.formControl{ padding: 10px 12px; min-height: 44px; font-size: 1rem; }
 	.ctaButton{ padding: 8px 14px; }
 }

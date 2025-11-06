@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faClock } from '@fortawesome/free-solid-svg-icons'
+import { faPhone, faClock, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
+  const [mobileOpen, setMobileOpen] = useState(false)
   return (
     <header style={{
       backgroundColor: 'white',
@@ -10,16 +12,30 @@ const Header = () => {
       top: 0,
       zIndex: 1000
     }}>
-      <div style={{ backgroundColor: 'var(--primary)', color: 'white', padding: '8px 0', fontSize: '0.9rem' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <style>{`
+        .header-row { display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; flex-shrink: 0; white-space: nowrap; }
+        .nav { display: flex; justify-content: center; flex: 1 1 auto; min-width: 0; overflow: hidden; }
+        .menu-toggle { display: none; background: none; border: 0; color: var(--dark); padding: 8px; cursor: pointer; }
+        .cta { flex-shrink: 0; white-space: nowrap; }
+        .mobile-menu { display: none; }
+        @media (max-width: 768px) {
+          .header-row { flex-wrap: wrap; }
+          .nav { order: 3; flex-basis: 100%; display: flex; justify-content: center; margin-top: 8px; }
+          .menu-toggle { display: none; }
+          .mobile-menu { display: none; }
+        }
+      `}</style>
+      <div style={{ backgroundColor: 'var(--primary)', color: 'white', padding: '8px 16px', fontSize: '0.9rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span><FontAwesomeIcon icon={faPhone} /> +254 700 123 456</span>
           <span><FontAwesomeIcon icon={faClock} /> Open 24/7</span>
         </div>
       </div>
 
-      <div style={{ padding: '15px 0' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div style={{ padding: '15px 16px' }}>
+        <div className="header-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div className="brand" style={{ display: 'flex', alignItems: 'center', flexShrink: 0, whiteSpace: 'nowrap' }}>
             <div style={{
               backgroundColor: 'var(--primary)',
               color: 'white',
@@ -38,26 +54,48 @@ const Header = () => {
             </div>
           </div>
 
-          <nav>
-            <ul style={{ display: 'flex', listStyle: 'none', margin: 0 }}>
-              <li style={{ marginLeft: 25 }}><a href="#home" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Home</a></li>
-              <li style={{ marginLeft: 25 }}><a href="#bio" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>About Us</a></li>
-              <li style={{ marginLeft: 25 }}><a href="#services" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Services</a></li>
-              <li style={{ marginLeft: 25 }}><a href="#vaccination" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Vaccination</a></li>
-              <li style={{ marginLeft: 25 }}><a href="#consultation" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Consultation</a></li>
-              <li style={{ marginLeft: 25 }}><a href="#payment" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Payment</a></li>
+          <nav className="nav" style={{ flex: '1 1 auto', display: 'flex', justifyContent: 'center', overflow: 'hidden', minWidth: 0 }}>
+            <ul style={{ display: 'flex', listStyle: 'none', margin: 0, padding: 0, flexWrap: 'wrap', justifyContent: 'center', gap: 25 }}>
+              <li><a href="#home" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Home</a></li>
+              <li><a href="#bio" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>About Us</a></li>
+              <li><a href="#services" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Services</a></li>
+              <li><a href="#vaccination" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Vaccination</a></li>
+              <li><a href="#consultation" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Consultation</a></li>
+              <li><a href="#payment" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Payment</a></li>
             </ul>
           </nav>
 
-          <a href="#consultation" style={{
+          <button
+            className="menu-toggle"
+            aria-label="Toggle menu"
+            onClick={() => setMobileOpen(v => !v)}
+          >
+            <FontAwesomeIcon icon={mobileOpen ? faTimes : faBars} />
+          </button>
+
+          <a href="#consultation" className="cta" style={{
             backgroundColor: 'var(--primary)',
             color: 'white',
             padding: '10px 20px',
             borderRadius: 30,
             textDecoration: 'none',
-            fontWeight: 600
+            fontWeight: 600,
+            flexShrink: 0,
+            whiteSpace: 'nowrap'
           }}>Book Appointment</a>
         </div>
+        {mobileOpen && (
+          <div className="mobile-menu" style={{ backgroundColor: 'white', borderTop: '1px solid rgba(0,0,0,0.08)', padding: '8px 16px' }}>
+            <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+              <li style={{ margin: '10px 0' }}><a href="#home" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>Home</a></li>
+              <li style={{ margin: '10px 0' }}><a href="#bio" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>About Us</a></li>
+              <li style={{ margin: '10px 0' }}><a href="#services" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>Services</a></li>
+              <li style={{ margin: '10px 0' }}><a href="#vaccination" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>Vaccination</a></li>
+              <li style={{ margin: '10px 0' }}><a href="#consultation" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>Consultation</a></li>
+              <li style={{ margin: '10px 0' }}><a href="#payment" style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600 }} onClick={() => setMobileOpen(false)}>Payment</a></li>
+            </ul>
+          </div>
+        )}
       </div>
     </header>
   )
