@@ -37,7 +37,7 @@ const Header = () => {
           .header-row { align-items: flex-start; }
           .nav { display: none !important; }
           .menu-toggle { display: inline-flex; align-items: center; justify-content: center; order: 2; margin-left: 8px; }
-          .cta { order: 3; margin-top: 8px; }
+          .cta { display: none; }
           .mobile-menu { display: block; width: 100%; }
         }
       `}</style>

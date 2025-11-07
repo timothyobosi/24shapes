@@ -23,6 +23,7 @@ body{
     background-color: #f5f7fa;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .app{
@@ -86,3 +87,11 @@ html, body, #root{
 
 /* Offset anchors for sticky header */
 #bio, #services, #vaccination, #consultation, #payment { scroll-margin-top: 90px; }
+
+/* Prevent horizontal overflow */
+section { overflow-x: hidden; }
+img, svg, table { max-width: 100%; height: auto; }
+
+@media (max-width: 600px) {
+  section { padding: 60px 0 !important; }
+}

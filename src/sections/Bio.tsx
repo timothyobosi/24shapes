@@ -45,21 +45,28 @@ const Bio = () => {
 
   return (
     <section style={{ padding: '80px 0', background: 'white' }}>
+      <style>{`
+        .bio-tabs{ display:flex; justify-content:center; gap:20px; margin-bottom:40px; border-bottom:1px solid #eee; flex-wrap:wrap; }
+        .bio-tab{ padding: 15px 30px; cursor:pointer; font-weight:600; border:none; background:transparent; }
+        @media (max-width: 600px){
+          .bio-tabs{ gap:12px; margin-bottom:16px; display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); justify-content: stretch; }
+          .bio-tab{ padding: 10px 12px; font-size: .95rem; width: 100%; text-align: center; }
+        }
+        @media (max-width: 380px){
+          .bio-tabs{ grid-template-columns: 1fr; }
+        }
+      `}</style>
       <div className="container">
-        {/* Tabs — 100% identical to your original */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginBottom: 40, borderBottom: '1px solid #eee' }}>
+        {/* Tabs */}
+        <div className="bio-tabs">
           {(Object.keys(tabs) as TabKey[]).map((key) => (
             <button
               key={key}
               onClick={() => setActive(key)}
+              className="bio-tab"
               style={{
-                padding: '15px 30px',
-                cursor: 'pointer',
-                fontWeight: 600,
-                border: 'none',
                 borderBottom: active === key ? '3px solid var(--primary)' : '3px solid transparent',
-                color: active === key ? 'var(--primary)' : 'inherit',
-                background: 'transparent'
+                color: active === key ? 'var(--primary)' : 'inherit'
               }}
             >
               {tabs[key as TabKey].label}
