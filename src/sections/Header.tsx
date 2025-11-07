@@ -32,6 +32,14 @@ const Header = () => {
           .menu-toggle { display: none; }
           .mobile-menu { display: none; }
         }
+        /* Compact layout for small screens */
+        @media (max-width: 600px) {
+          .header-row { align-items: flex-start; }
+          .nav { display: none !important; }
+          .menu-toggle { display: inline-flex; align-items: center; justify-content: center; order: 2; margin-left: 8px; }
+          .cta { order: 3; margin-top: 8px; }
+          .mobile-menu { display: block; width: 100%; }
+        }
       `}</style>
       <div style={{ backgroundColor: 'var(--primary)', color: 'white', padding: '8px 16px', fontSize: '0.9rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -61,7 +69,7 @@ const Header = () => {
             </div>
           </div>
 
-          <nav className="nav" style={{ flex: '1 1 auto', display: 'flex', justifyContent: 'center', overflow: 'hidden', minWidth: 0 }}>
+          <nav className="nav" style={{ flex: '1 1 auto', justifyContent: 'center', overflow: 'hidden', minWidth: 0 }}>
             <ul style={{ display: 'flex', listStyle: 'none', margin: 0, padding: 0, flexWrap: 'wrap', justifyContent: 'center', gap: 25 }}>
               <li><a href="#home" onClick={clearServiceParam} style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>Home</a></li>
               <li><a href="#bio" onClick={clearServiceParam} style={{ textDecoration: 'none', color: 'var(--dark)', fontWeight: 600, transition: 'color 0.3s' }}>About Us</a></li>
