@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <style>
+      .bg { fill: #2c7fb8; }
+      .txt { fill: #ffffff; font-weight: 700; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 26px; }
+    </style>
+  </defs>
+  <circle cx="32" cy="32" r="28" class="bg"/>
+  <text x="32" y="32" text-anchor="middle" dominant-baseline="central" class="txt">24S</text>
+</svg>
