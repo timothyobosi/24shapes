@@ -49,11 +49,8 @@ const Bio = () => {
         .bio-tabs{ display:flex; justify-content:center; gap:20px; margin-bottom:40px; border-bottom:1px solid #eee; flex-wrap:wrap; }
         .bio-tab{ padding: 15px 30px; cursor:pointer; font-weight:600; border:none; background:transparent; }
         @media (max-width: 600px){
-          .bio-tabs{ gap:12px; margin-bottom:16px; display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); justify-content: stretch; }
-          .bio-tab{ padding: 10px 12px; font-size: .95rem; width: 100%; text-align: center; }
-        }
-        @media (max-width: 380px){
-          .bio-tabs{ grid-template-columns: 1fr; }
+          .bio-tabs{ gap:8px; margin-bottom:16px; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start; padding: 0 8px; }
+          .bio-tab{ padding: 8px 12px; font-size: .85rem; flex: 0 0 auto; white-space: nowrap; }
         }
       `}</style>
       <div className="container">
