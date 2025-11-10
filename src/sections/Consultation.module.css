@@ -7,7 +7,11 @@
 .formGroup label{ display: block; margin-bottom: 6px; }
 .error{ color: #e74c3c; font-size: 0.85rem; }
 .ctaWrapper{ text-align: center; margin-top: 20px; }
-.ctaButton{ background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 30px; font-weight: 600; border: none; cursor: pointer; }
+.ctaButton{ background: var(--primary); color: #fff; padding: 10px 20px; border-radius: 30px; font-weight: 600; border: none; cursor: pointer; transition: opacity 0.3s; }
+.ctaButton:disabled{ opacity: 0.6; cursor: not-allowed; }
+.statusMessage{ padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center; font-weight: 500; }
+.statusMessage.success{ background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.statusMessage.error{ background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
 
 @media (max-width: 768px) {
 	.consultationForm{ padding: 20px; }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Container from '../components/Container';
 import styles from './Consultation.module.css';
@@ -15,10 +15,45 @@ interface FormData {
 
 const Consultation: React.FC = () => {
   const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm<FormData>();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
-  const onSubmit = () => {
-    alert('Thank you for your enquiry! We will contact you shortly.');
-    reset();
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/enquiry`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitStatus({ type: 'success', message: result.message });
+        reset();
+        // Clear success message after 5 seconds
+        setTimeout(() => setSubmitStatus(null), 5000);
+      } else {
+        setSubmitStatus({ 
+          type: 'error', 
+          message: result.message || 'Failed to submit enquiry. Please try again.' 
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus({ 
+        type: 'error', 
+        message: 'Network error. Please check your connection and try again.' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const today = new Date().toISOString().split('T')[0];
@@ -63,6 +98,11 @@ const Consultation: React.FC = () => {
           <h2>Consultation & Enquiry</h2>
         </div>
         <div className={styles.consultationForm}>
+          {submitStatus && (
+            <div className={`${styles.statusMessage} ${styles[submitStatus.type]}`}>
+              {submitStatus.message}
+            </div>
+          )}
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.formRow}>
               <div className={styles.formGroup}>
@@ -118,7 +158,9 @@ const Consultation: React.FC = () => {
             </div>
 
             <div className={styles.ctaWrapper}>
-              <button type="submit" className={styles.ctaButton}>Submit Request</button>
+              <button type="submit" className={styles.ctaButton} disabled={isSubmitting}>
+                {isSubmitting ? 'Submitting...' : 'Submit Request'}
+              </button>
             </div>
           </form>
         </div>

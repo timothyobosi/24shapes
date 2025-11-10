@@ -1,4 +1,59 @@
-# React + TypeScript + Vite
+# 24ShapesLab Website
+
+A modern React + TypeScript + Vite application for 24ShapesLab with consultation form and email API integration.
+
+## Quick Start
+
+### Frontend Setup
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start the development server:
+```bash
+npm run dev
+```
+
+### Backend API Setup
+
+The consultation form uses a Node.js backend to send emails.
+
+1. Navigate to the server directory and install dependencies:
+```bash
+cd server
+npm install
+```
+
+2. Configure your email settings in the `.env` file (see `.env.example` for reference):
+```env
+EMAIL_SERVICE=gmail
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+RECIPIENT_EMAIL=timothyobosi8@gmail.com
+```
+
+3. Start the API server:
+```bash
+npm run dev
+```
+
+The API will run on `http://localhost:3001`
+
+For detailed setup instructions, see [server/README.md](server/README.md)
+
+## Features
+
+- Modern React with TypeScript
+- Consultation form with email notifications
+- Responsive design
+- Form validation with react-hook-form
+- Email API with nodemailer
+
+---
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
