@@ -40,9 +40,9 @@ const Footer = () => (
         <div>
           <h3 style={{ fontSize: '1.3rem', marginBottom: 20 }}>Contact Us</h3>
           <ul style={{ listStyle: 'none', padding: 0 }}>
-            <li style={{ marginBottom: 10 }}><FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginRight: 10, color: 'var(--secondary)' }} />123 Medical Plaza, Nairobi, Kenya</li>
-            <li style={{ marginBottom: 10 }}><FontAwesomeIcon icon={faPhone} style={{ marginRight: 10, color: 'var(--secondary)' }} />+254 719 830 928</li>
-            <li style={{ marginBottom: 10 }}><FontAwesomeIcon icon={faEnvelope} style={{ marginRight: 10, color: 'var(--secondary)' }} />info@24shapeslab.co.ke</li>
+            <li style={{ marginBottom: 10 }}><FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginRight: 10, color: 'var(--secondary)' }} />Delta House, Nairobi, Kenya</li>
+            <li style={{ marginBottom: 10 }}><FontAwesomeIcon icon={faPhone} style={{ marginRight: 10, color: 'var(--secondary)' }} />+254 704 081 195</li>
+            <li style={{ marginBottom: 10 }}><FontAwesomeIcon icon={faEnvelope} style={{ marginRight: 10, color: 'var(--secondary)' }} />24shapeslaboratory@gmail.com</li>
             <li><FontAwesomeIcon icon={faClock} style={{ marginRight: 10, color: 'var(--secondary)' }} />Open 24/7</li>
           </ul>
         </div>
