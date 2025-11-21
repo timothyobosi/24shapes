@@ -1,14 +1,14 @@
 // src/App.tsx
 import { useEffect } from 'react'
-import Header from './sections/Header'
-import Hero from './sections/Hero'
-import Bio from './sections/Bio'
-import Footer from './sections/Footer'
-import Services from './sections/Services'
-import Vaccination from './sections/Vaccination'
-import Consultation from './sections/Consultation'
-import Payment from './sections/Payment'
-import LazyMount from './components/LazyMount'
+// import Header from './sections/Header'
+// import Hero from './sections/Hero'
+// import Bio from './sections/Bio'
+// import Footer from './sections/Footer'
+// import Services from './sections/Services'
+// import Vaccination from './sections/Vaccination'
+// import Consultation from './sections/Consultation'
+// import Payment from './sections/Payment'
+// import LazyMount from './components/LazyMount'
 import ErrorPage from './sections/ErrorPage'
 
 function App() {
