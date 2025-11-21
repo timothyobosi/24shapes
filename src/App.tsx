@@ -9,6 +9,7 @@ import Vaccination from './sections/Vaccination'
 import Consultation from './sections/Consultation'
 import Payment from './sections/Payment'
 import LazyMount from './components/LazyMount'
+import ErrorPage from './sections/ErrorPage'
 
 function App() {
   useEffect(() => {
@@ -51,7 +52,7 @@ function App() {
   }, []);
   return (
     <div className="app">
-      <Header />
+      {/* <Header />
       <main>
         <Hero />
         <LazyMount id="bio" minHeight={400}>
@@ -70,7 +71,8 @@ function App() {
           <Payment />
         </LazyMount>
       </main>
-      <Footer />
+      <Footer /> */}
+      <ErrorPage/>
     </div>
   )
 }
