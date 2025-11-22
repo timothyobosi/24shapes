@@ -1,15 +1,15 @@
 // src/App.tsx
 import { useEffect } from 'react'
-// import Header from './sections/Header'
-// import Hero from './sections/Hero'
-// import Bio from './sections/Bio'
-// import Footer from './sections/Footer'
-// import Services from './sections/Services'
-// import Vaccination from './sections/Vaccination'
-// import Consultation from './sections/Consultation'
-// import Payment from './sections/Payment'
-// import LazyMount from './components/LazyMount'
-import ErrorPage from './sections/ErrorPage'
+import Header from './sections/Header'
+import Hero from './sections/Hero'
+import Bio from './sections/Bio'
+import Footer from './sections/Footer'
+import Services from './sections/Services'
+import Vaccination from './sections/Vaccination'
+import Consultation from './sections/Consultation'
+import Payment from './sections/Payment'
+import LazyMount from './components/LazyMount'
+// import ErrorPage from './sections/ErrorPage'
 
 function App() {
   useEffect(() => {
@@ -52,7 +52,7 @@ function App() {
   }, []);
   return (
     <div className="app">
-      {/* <Header />
+      <Header />
       <main>
         <Hero />
         <LazyMount id="bio" minHeight={400}>
@@ -71,8 +71,8 @@ function App() {
           <Payment />
         </LazyMount>
       </main>
-      <Footer /> */}
-      <ErrorPage/>
+      <Footer />
+      {/* <ErrorPage/> */}
     </div>
   )
 }
