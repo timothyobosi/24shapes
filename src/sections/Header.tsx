@@ -43,7 +43,7 @@ const Header = () => {
       `}</style>
       <div style={{ backgroundColor: 'var(--primary)', color: 'white', padding: '8px 16px', fontSize: '0.9rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span><FontAwesomeIcon icon={faPhone} /> +254 719 830 928</span>
+          <span><FontAwesomeIcon icon={faPhone} /> +254 704 081 195</span>
           <span><FontAwesomeIcon icon={faClock} /> Open 24/7</span>
         </div>
       </div>
