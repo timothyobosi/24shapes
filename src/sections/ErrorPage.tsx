@@ -4,9 +4,9 @@ function ErrorPage() {
   return (
     <div className={styles.errorContainer}>
       <div className={styles.errorContent}>
-        <h1 className={styles.errorTitle}>404</h1>
-        <h2 className={styles.errorTitle}>Error</h2>
-        {/* <p className={styles.errorSubtitle}>Kindly contact IT support</p> */}
+        {/* <h1 className={styles.errorTitle}>404</h1>
+        <h2 className={styles.errorTitle}>Error</h2> */}
+        <p className={styles.errorSubtitle}>Kindly contact Devoloper for support</p>
       </div>
     </div>
   )

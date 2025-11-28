@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #eceffa 0%, #ede7f3 100%);
 }
 
 .errorContent {
@@ -13,7 +13,7 @@
 .errorTitle {
   font-size: 120px;
   font-weight: bold;
-  color: #ffffff;
+  color: #0c0101;
   margin: 0;
   line-height: 1;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -21,7 +21,7 @@
 
 .errorSubtitle {
   font-size: 18px;
-  color: #f0f0f0;
+  color: #0a0101;
   margin-top: 20px;
   font-weight: 300;
   letter-spacing: 0.5px;
